@@ -1,13 +1,13 @@
 # NovaTech
 Análise de vendas 2024 de uma empresa fictícia(NovaTech) de eletrônicos. Limpeza e tratamento de 5.000 registros com DuckDB (SQL) e visualização em dashboard no Power BI. Identificação de padrões de faturamento, cancelamentos, produtos e vendedores.
 
-================================================================
-       ANÁLISE DE VENDAS 2024 — NovaTech
-       Ferramenta: DuckDB (SQL)
-================================================================
+
+ # ANÁLISE DE VENDAS 2024 — NovaTech
+# Ferramenta: DuckDB (SQL)
+
 
 INTRODUÇÃO
-----------------------------------------------------------------
+
 A NovaTech é uma empresa de varejo de produtos eletrônicos que
 comercializa itens nas categorias de Informática, Fotografia,
 Tablets, Eletrodomésticos, Celulares, Áudio, Wearables e
@@ -36,13 +36,13 @@ Os dados utilizados foram extraídos do arquivo
 pedidos realizados entre 01/01/2024 e 30/12/2024.
 
 
-================================================================
-PARTE 1 — IMPORTAÇÃO E LIMPEZA DOS DADOS
-================================================================
 
-----------------------------------------------------------------
+IMPORTAÇÃO E LIMPEZA DOS DADOS
+
+
+
 PASSO 1: IMPORTAÇÃO DO CSV
-----------------------------------------------------------------
+
 Comando utilizado:
 
     CREATE TABLE vendas AS
@@ -114,9 +114,9 @@ Correção:
   a tabela limpa (ver Passo 5).
 
 
-----------------------------------------------------------------
+
 PASSO 3: VERIFICAÇÃO DE TIPOS DE DADOS
-----------------------------------------------------------------
+
 Problema identificado via DESCRIBE vendas:
   - data_venda: VARCHAR (deveria ser DATE)
   - desconto: VARCHAR com símbolo "%" (deveria ser DOUBLE)
@@ -146,9 +146,9 @@ Resultado: 3 formatos distintos encontrados:
   - DD-MM-YYYY :   108 registros
 
 
-----------------------------------------------------------------
+
 PASSO 4: VERIFICAÇÃO DE VALORES INVÁLIDOS
-----------------------------------------------------------------
+
 Comandos utilizados:
 
     -- Duplicatas completas
@@ -236,9 +236,9 @@ Problemas encontrados:
     (BOLETO, CARTÃO CRÉDITO, CARTÃO DÉBITO)
 
 
-----------------------------------------------------------------
+
 PASSO 5: CRIAÇÃO DA TABELA LIMPA
-----------------------------------------------------------------
+
 Comando utilizado:
 
     CREATE TABLE vendas_limpa AS
@@ -320,13 +320,13 @@ Verificação final:
 Resultado: 0 inconsistências em todas as verificações finais.
 
 
-================================================================
-PARTE 2 — ANÁLISES
-================================================================
 
-----------------------------------------------------------------
+ANÁLISES
+
+
+
 ANÁLISE 1: FATURAMENTO TOTAL DE 2024
-----------------------------------------------------------------
+
 Comando utilizado:
 
     SELECT ROUND(SUM(total_venda), 2) AS faturamento_total
@@ -341,9 +341,9 @@ Por quê:
 Resultado: R$ 10.645.968,50
 
 
-----------------------------------------------------------------
+
 ANÁLISE 2: FATURAMENTO POR MÊS
-----------------------------------------------------------------
+
 Comando utilizado:
 
     SELECT
@@ -374,9 +374,9 @@ Resultado:
   Menor: Setembro — R$ 721.345,49
 
 
-----------------------------------------------------------------
+
 ANÁLISE 3: TAXA DE CANCELAMENTO E DEVOLUÇÃO
-----------------------------------------------------------------
+
 Comando utilizado:
 
     SELECT
@@ -400,9 +400,9 @@ Resultado:
   Taxa de perda total: 29,55%
 
 
-----------------------------------------------------------------
+
 ANÁLISE 4: TOP 5 PRODUTOS MAIS VENDIDOS
-----------------------------------------------------------------
+
 Comando utilizado:
 
     SELECT
@@ -430,9 +430,8 @@ Resultado:
   5º Mouse Logitech MX Master  — 716 unidades — R$   231.329,30
 
 
-----------------------------------------------------------------
+
 ANÁLISE 5: FATURAMENTO POR CATEGORIA
-----------------------------------------------------------------
 Comando utilizado:
 
     SELECT
@@ -463,9 +462,9 @@ Resultado:
   8º Acessórios       — R$    97.736,27 —  0,92%
 
 
-----------------------------------------------------------------
+
 ANÁLISE 6: TOP 3 VENDEDORES EM FATURAMENTO
-----------------------------------------------------------------
+
 Comando utilizado:
 
     SELECT
@@ -493,9 +492,9 @@ Resultado:
   3º Roberto Silva   (V003) — 339 pedidos — R$ 1.082.260,06
 
 
-----------------------------------------------------------------
+
 ANÁLISE 7: FATURAMENTO POR ESTADO
-----------------------------------------------------------------
+
 Comando utilizado:
 
     SELECT
@@ -517,9 +516,9 @@ Resultado:
   9º RJ — R$   966.192,29 —  9,08%
 
 
-----------------------------------------------------------------
+
 ANÁLISE 8: FORMA DE PAGAMENTO MAIS USADA
-----------------------------------------------------------------
+
 Comando utilizado:
 
     SELECT
@@ -539,9 +538,9 @@ Resultado:
   4º Boleto         —   579 pedidos — 16,77% — R$ 1.803.441,14
 
 
-================================================================
+
 CONCLUSÃO
-================================================================
+
 A análise dos dados de 2024 revelou um faturamento sólido de
 R$ 10,6 milhões, com Julho como mês de pico (R$ 1.019.507,84)
 e Setembro como ponto de atenção (R$ 721.345,49).
@@ -556,7 +555,7 @@ melhores vendedores respondem por 31,6% do faturamento total.
 
 
 RECOMENDAÇÕES
-----------------------------------------------------------------
+
 1. Investigar causas da alta taxa de cancelamento e devolução,
    especialmente por produto e canal de venda.
 
